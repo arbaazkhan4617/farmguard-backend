@@ -36,7 +36,7 @@ def create_fallback_model():
     print("Creating lightweight CNN model for deployment...")
     
     model = tf.keras.Sequential([
-        # Simplified architecture
+        # Simplified architecture for free tier deployment
         tf.keras.layers.Conv2D(32, 3, activation='relu', input_shape=(224, 224, 3)),
         tf.keras.layers.MaxPooling2D(),
         tf.keras.layers.Conv2D(64, 3, activation='relu'),
