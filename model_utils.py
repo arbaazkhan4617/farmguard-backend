@@ -32,49 +32,22 @@ def load_model(tf_model_path):
         return create_fallback_model()
 
 def create_fallback_model():
-    """Create an improved CNN model with higher confidence"""
-    print("Creating improved CNN model with higher confidence...")
+    """Create a lightweight CNN model for free tier deployment"""
+    print("Creating lightweight CNN model for deployment...")
     
     model = tf.keras.Sequential([
-        # Enhanced convolutional layers
-        tf.keras.layers.Conv2D(64, 3, activation='relu', input_shape=(224, 224, 3)),
-        tf.keras.layers.BatchNormalization(),
+        # Simplified architecture
+        tf.keras.layers.Conv2D(32, 3, activation='relu', input_shape=(224, 224, 3)),
         tf.keras.layers.MaxPooling2D(),
-        
-        tf.keras.layers.Conv2D(128, 3, activation='relu'),
-        tf.keras.layers.BatchNormalization(),
+        tf.keras.layers.Conv2D(64, 3, activation='relu'),
         tf.keras.layers.MaxPooling2D(),
-        
-        tf.keras.layers.Conv2D(256, 3, activation='relu'),
-        tf.keras.layers.BatchNormalization(),
-        tf.keras.layers.MaxPooling2D(),
-        
-        tf.keras.layers.Conv2D(512, 3, activation='relu'),
-        tf.keras.layers.BatchNormalization(),
-        tf.keras.layers.MaxPooling2D(),
-        
-        # Dropout for regularization
-        tf.keras.layers.Dropout(0.5),
         tf.keras.layers.Flatten(),
-        
-        # Dense layers with regularization
-        tf.keras.layers.Dense(512, activation='relu'),
-        tf.keras.layers.BatchNormalization(),
-        tf.keras.layers.Dropout(0.3),
-        
-        tf.keras.layers.Dense(256, activation='relu'),
-        tf.keras.layers.BatchNormalization(),
-        tf.keras.layers.Dropout(0.3),
-        
-        # Output layer with temperature scaling for confidence
+        tf.keras.layers.Dense(64, activation='relu'),
         tf.keras.layers.Dense(4, activation='softmax')
     ])
     
-    # Use a more aggressive optimizer
-    optimizer = tf.keras.optimizers.Adam(learning_rate=0.001)
-    
     model.compile(
-        optimizer=optimizer,
+        optimizer='adam',
         loss='sparse_categorical_crossentropy',
         metrics=['accuracy']
     )
