@@ -23,7 +23,7 @@ The FarmGuard backend is built with FastAPI and provides a robust, scalable API 
 
 1. **Clone the repository**
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/arbaazkhan4617/farmguard-backend
 cd farmguard-backend
 ```
 
