@@ -271,7 +271,7 @@ This project is licensed under the MIT License.
 ## 📞 Support
 
 For technical support or questions:
-- **GitHub Issues**: [Create an issue](https://github.com/your-username/farmguard/issues)
+- **GitHub Issues**: [Create an issue](https://github.com/arbaazkhan4617/farmguard-backend)
 - **Email**: [your.email@example.com]
 - **Documentation**: [Full API docs](http://localhost:8000/docs)
 
