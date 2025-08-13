@@ -1,0 +1,10 @@
+fastapi
+uvicorn[standard]
+pillow
+numpy
+tensorflow    # or tflite-runtime if using TFLite
+sqlalchemy
+psycopg2-binary  # only if using Postgres
+python-multipart
+python-dotenv
+
